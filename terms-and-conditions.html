@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms &amp; Conditions — Brandslane</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f8f8f6;
+  --bg-muted: #f1f0ed;
+  --bg-dark: #0c0c0e;
+  --bg-dark-soft: #141416;
+  --text: #1a1a1a;
+  --text-secondary: #555555;
+  --text-tertiary: #888888;
+  --text-faint: #b0b0b0;
+  --border: #e8e7e4;
+  --border-light: #f0efec;
+  --accent: #1a56db;
+  --accent-hover: #1548c0;
+  --accent-soft: #eef2ff;
+  --accent-text: #1a56db;
+  --green: #16803c;
+  --green-soft: #ecfdf3;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Outfit', system-ui, sans-serif;
+  --radius: 12px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+::selection { background: var(--accent); color: #fff; }
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(255,255,255,0.9);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nav-logo {
+  font-family: var(--sans);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--accent); }
+
+/* ===== PAGE CONTENT ===== */
+.page-content {
+  padding: 120px 28px 100px;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.page-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent-soft);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent-text);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.page-title {
+  font-family: var(--serif);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -1px;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.page-meta {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin-bottom: 48px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.policy-section {
+  margin-bottom: 40px;
+}
+
+.policy-section h2 {
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 14px;
+  letter-spacing: -0.2px;
+}
+
+.policy-section p {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.policy-section p:last-child { margin-bottom: 0; }
+
+.policy-section ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 14px;
+}
+
+.policy-section ul li {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.policy-section ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+
+.policy-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 36px 0;
+}
+
+.policy-contact-box {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-top: 48px;
+}
+
+.policy-contact-box p {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+.policy-contact-box a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.policy-contact-box a:hover { text-decoration: underline; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--bg-dark);
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-body {
+  text-align: center;
+  padding: 60px 28px 52px;
+  position: relative;
+  z-index: 1;
+}
+.footer-policy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  list-style: none;
+  padding: 0;
+}
+.footer-policy a {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-policy a:hover { color: rgba(255,255,255,0.65); }
+.footer-addresses {
+  display: flex;
+  justify-content: center;
+  gap: 72px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+.footer-addr {
+  font-size: 12px;
+  color: rgba(255,255,255,0.22);
+  line-height: 1.75;
+  text-align: center;
+}
+.footer-addr strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 4px;
+}
+.footer-copy {
+  font-size: 12px;
+  color: rgba(255,255,255,0.2);
+  margin-bottom: 0;
+}
+.footer-wordmark {
+  text-align: center;
+  font-family: var(--sans);
+  font-size: clamp(56px, 11.2vw, 161px);
+  font-weight: 800;
+  color: rgba(255,255,255,0.07);
+  letter-spacing: -5px;
+  line-height: 0.82;
+  height: 0.72em;
+  overflow: hidden;
+  user-select: none;
+  display: block;
+  margin-top: 40px;
+}
+@media (max-width: 640px) {
+  .footer-addresses { flex-direction: column; gap: 20px; }
+  .footer-policy { gap: 14px; }
+  .page-content { padding: 100px 20px 80px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="brandslane-landing-v3.html" class="nav-logo">Brandslane<span>.</span></a>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<main class="page-content">
+  <div class="page-label">Legal</div>
+  <h1 class="page-title">Terms &amp; Conditions</h1>
+  <p class="page-meta">Last updated: February 2024</p>
+
+  <div class="policy-section">
+    <h2>1. Agreement to Terms</h2>
+    <p>By accessing our website and engaging our services, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you may not engage our services.</p>
+  </div>
+
+  <hr class="policy-divider">
+
+  <div class="policy-section">
+    <h2>2. Services</h2>
+    <p>Brandslane provides AI-powered ad creative generation, UGC content production, social media content, product photography, and related digital marketing services for e-commerce businesses. The scope of services is defined in individual client agreements or statements of work.</p>
+  </div>
+
+  <hr class="policy-divider">
+
+  <div class="policy-section">
+    <h2>3. Payment Terms</h2>
+    <p>All fees are outlined in your client agreement. Invoices are due upon receipt unless otherwise agreed in writing. Late payments may incur interest at 1.5% per month. Brandslane reserves the right to pause or terminate services for accounts with overdue balances.</p>
+  </div>
+
+  <hr class="policy-divider">
+
+  <div class="policy-section">
+    <h2>4. Client Obligations</h2>
+    <p>You agree to provide accurate, complete information required for service delivery, including brand guidelines, product assets, and account access. You represent that you have the legal right to use any materials provided to us, and that those materials do not infringe on any third-party intellectual property rights.</p>
+  </div>
+
+  <hr class="policy-divider">
+
+  <div class="policy-section">
+    <h2>5. Intellectual Property</h2>
+    <p>Upon receipt of full payment, all final deliverables created specifically for your brand are assigned to you. Brandslane retains the right to use work samples in portfolios and marketing materials unless explicitly agreed otherwise in writing. Any pre-existing tools, frameworks, or proprietary processes used in delivery remain the property of Brandslane.</p>
+  </div>
+
+  <hr class="policy-divider">
+
+  <div class="policy-section">
+    <h2>6. Confidentiality</h2>
+    <p>Both parties agree to keep confidential any proprietary business information shared during the engagement. This includes but is not limited to business strategies, financial data, creative concepts, and customer information.</p>
+  </div>
+
+  <hr class="policy-divider">
+
+  <div class="policy-section">
+    <h2>7. Limitation of Liability</h2>
+    <p>Brandslane shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of our services. Our total liability shall not exceed the fees paid by you in the three months preceding the claim. We make no guarantees regarding specific revenue outcomes, advertising performance, or ROAS results.</p>
+  </div>
+
+  <hr class="policy-divider">
+
+  <div class="policy-section">
+    <h2>8. Termination</h2>
+    <p>Either party may terminate the engagement with 30 days written notice. Upon termination, you are responsible for all fees incurred up to the termination date. Brandslane will deliver all completed work upon receipt of final payment.</p>
+  </div>
+
+  <hr class="policy-divider">
+
+  <div class="policy-section">
+    <h2>9. Governing Law</h2>
+    <p>These Terms are governed by the laws of the Republic of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Gautam Buddha Nagar, Uttar Pradesh, India.</p>
+  </div>
+
+  <hr class="policy-divider">
+
+  <div class="policy-section">
+    <h2>10. Changes to These Terms</h2>
+    <p>We reserve the right to update these Terms at any time. Continued use of our services after changes constitutes acceptance of the new terms. We will notify active clients of material changes via email.</p>
+  </div>
+
+  <div class="policy-contact-box">
+    <p>For any questions about these Terms, contact us at <a href="mailto:hello@brandslane.co">hello@brandslane.co</a> or visit our <a href="contact-us.html">Contact Us</a> page.</p>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-body">
+    <ul class="footer-policy">
+      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+      <li><a href="refund-policy.html">Refund Policy</a></li>
+      <li><a href="contact-us.html">Contact Us</a></li>
+    </ul>
+    <div class="footer-addresses">
+      <div class="footer-addr">
+        <strong>India</strong>
+        C-25, First Floor, Sector 8,<br>Gautam Buddha Nagar, Uttar Pradesh,<br>India — 201301
+      </div>
+      <div class="footer-addr">
+        <strong>Dubai</strong>
+        Building A1, Dubai Digital Park,<br>Dubai Silicon Oasis,<br>Dubai, United Arab Emirates
+      </div>
+    </div>
+    <p class="footer-copy">© 2024 Brandslane Media LLP. All rights reserved.</p>
+  </div>
+  <div class="footer-wordmark" aria-hidden="true">BRANDSLANE</div>
+</footer>
+
+</body>
+</html>
