@@ -4,6 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brandslane — AI Ad Creatives for E-Commerce</title>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '972598659845311');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=972598659845311&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -1415,7 +1429,7 @@ footer {
       <li><a href="#deliverables">Services</a></li>
       <li><a href="#how">Process</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="https://calendly.com/brandslane/brand-aicontent-call" target="_blank" class="nav-cta">Book AI Content Audit</a></li>
+      <li><a href="book-aicontent-call-us.html" class="nav-cta">Book AI Content Audit</a></li>
     </ul>
   </div>
 </nav>
@@ -1429,7 +1443,7 @@ footer {
         <h1 class="hero-anim ha2">The AI Content Approach,<br>You Need to <em>Scale Faster</em></h1>
         <p class="hero-sub hero-anim ha3"><u>Content is your bottleneck.</u> You need more ad content than your UGC creators can produce — faster, with more control, and without the headaches. That's what we build.</p>
         <div class="hero-buttons hero-anim ha4">
-          <a href="https://calendly.com/brandslane/brand-aicontent-call" target="_blank" class="btn-primary">Book AI Content Audit <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="book-aicontent-call-us.html" class="btn-primary">Book AI Content Audit <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="#deliverables" class="btn-secondary">See What We Deliver</a>
         </div>
         <div class="hero-pillars hero-anim ha5">
@@ -1672,7 +1686,7 @@ footer {
     </div>
 
     <div style="text-align:center; margin-top:56px;" class="reveal">
-      <a href="https://calendly.com/brandslane/brand-aicontent-call" target="_blank" class="btn-primary">Book AI Content Audit <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="book-aicontent-call-us.html" class="btn-primary">Book AI Content Audit <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
 
   </div>
@@ -1852,7 +1866,7 @@ footer {
   <div class="footer-body">
     <h2 class="footer-headline">Join the 200+ Brands We Have Helped Grow</h2>
     <div class="footer-cta-wrap">
-      <a href="https://calendly.com/brandslane/brand-aicontent-call" target="_blank" class="btn-primary">Book AI Content Audit <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="book-aicontent-call-us.html" class="btn-primary">Book AI Content Audit <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <ul class="footer-policy">
       <li><a href="privacy-policy.html">Privacy Policy</a></li>
@@ -1892,6 +1906,15 @@ document.querySelectorAll('.faq-q').forEach(q => {
     const was = item.classList.contains('active');
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
     if (!was) item.classList.add('active');
+  });
+});
+
+// Fire Lead pixel on all booking CTA clicks
+document.querySelectorAll('a[href="book-aicontent-call-us.html"]').forEach(function(link) {
+  link.addEventListener('click', function() {
+    if (typeof fbq === 'function') {
+      fbq('track', 'Lead');
+    }
   });
 });
 
