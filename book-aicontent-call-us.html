@@ -198,12 +198,22 @@ nav.scrolled .nav-links a:hover { color: #0c0c0e; }
 
 /* Calendly widget wrapper */
 .calendly-wrap {
-  max-width: 900px;
-  margin: 0 auto;
+  width: 100%;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-xl);
   border: 1px solid var(--border);
+}
+
+@media (max-width: 640px) {
+  .calendly-wrap {
+    border-radius: 0;
+    margin-left: -28px;
+    width: calc(100% + 56px);
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+  }
 }
 
 /* ===== FOOTER ===== */
