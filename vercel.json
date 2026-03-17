@@ -1,0 +1,9 @@
+{
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "functions": {
+    "api/capi.js": {
+      "runtime": "nodejs20.x"
+    }
+  }
+}

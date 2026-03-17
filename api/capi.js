@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   }
 
   const ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim()
-    || req.socket?.remoteAddress
+    || (req.socket && req.socket.remoteAddress)
     || '';
 
   const payload = {
@@ -27,7 +27,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(
-      `https://graph.facebook.com/v19.0/972598659845311/events?access_token=${process.env.META_CAPI_TOKEN}`,
+      'https://graph.facebook.com/v19.0/972598659845311/events?access_token=' + process.env.META_CAPI_TOKEN,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -39,4 +39,4 @@ export default async function handler(req, res) {
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }
-}
+};
