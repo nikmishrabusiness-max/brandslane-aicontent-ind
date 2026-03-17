@@ -20,8 +20,10 @@ module.exports = async function handler(req, res) {
       event_id,
       action_source: 'website',
       event_source_url: event_source_url || '',
-      client_ip_address: ip,
-      client_user_agent: client_user_agent || req.headers['user-agent'] || ''
+      user_data: {
+        client_ip_address: ip,
+        client_user_agent: client_user_agent || req.headers['user-agent'] || ''
+      }
     }]
   };
 
