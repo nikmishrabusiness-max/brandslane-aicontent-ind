@@ -60,7 +60,7 @@ body {
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
   line-height: 1.6;
 }
 
@@ -1141,7 +1141,8 @@ footer {
   margin-top: 40px;
 }
 @media (max-width: 640px) {
-  .footer-addresses { flex-direction: column; gap: 20px; }
+  .footer-addresses { flex-wrap: nowrap; gap: 16px; justify-content: space-around; }
+  .footer-addr { flex: 1; font-size: 11px; }
   .footer-policy { gap: 14px; }
 }
 
@@ -1176,7 +1177,7 @@ footer {
 .rev-header {
   text-align: center;
   max-width: 660px;
-  margin: 0 auto 72px;
+  margin: 0 auto 40px;
 }
 .rev-header .section-sub { margin: 0 auto; }
 .rev-section {
@@ -1330,39 +1331,10 @@ footer {
   background: var(--bg-muted);
 }
 
-/* ===== CONTENT GRID (6-up deliverables) ===== */
-.content-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-bottom: 28px;
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.content-grid:last-child { margin-bottom: 0; }
-.content-card {
-  background: #f0f0ee;
-  border: none;
-  border-radius: var(--radius-xl);
-  padding: 22px;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 0 52px 18px rgba(0,0,0,0.045);
-  transition: all 0.35s ease;
-}
-.content-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 64px 24px rgba(0,0,0,0.07);
-}
-.content-card-top { margin-bottom: 14px; }
-.content-card-top .del-badge { margin-bottom: 10px; }
-.content-card h3 {
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 6px;
-  letter-spacing: -0.2px;
+/* ===== CONTENT SECTIONS (6-up deliverables) ===== */
+.revenue .container {
+  max-width: none;
+  padding: 0 4%;
 }
 .card-desc {
   font-size: 13px;
@@ -1370,51 +1342,110 @@ footer {
   color: var(--text-secondary);
   margin: 0;
 }
-.card-media {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 0;
+.content-section {
+  padding: 36px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
-.card-media .media-flipper {
-  aspect-ratio: 1 / 1;
-  width: 100%;
-  box-shadow: none;
+.content-section:last-child { border-bottom: none; }
+.content-section-header {
+  margin-bottom: 20px;
 }
-.revenue .container {
-  max-width: none;
-  padding: 0 4%;
-}
-.card-media .slide-ph { font-size: 12px; }
-.card-media .slide-ph svg { width: 28px; height: 28px; }
-.card-media .flipper-dots { margin-top: 10px; }
-.card-bullets {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
-  padding: 0;
-  margin: 0;
-}
-.card-bullets li {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  font-size: 12.5px;
+.content-section-header h3 {
+  font-size: 19px;
+  font-weight: 700;
   color: var(--text);
-  line-height: 1.5;
-  font-weight: 500;
+  letter-spacing: -0.3px;
+  margin: 8px 0 6px;
 }
-.card-bullets li svg {
-  flex-shrink: 0;
-  margin-top: 2px;
-  color: var(--accent);
+.content-media-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
-@media (max-width: 900px) {
-  .content-grid { grid-template-columns: 1fr 1fr; }
+.content-media-row::-webkit-scrollbar { display: none; }
+.media-sq-card {
+  flex: 1;
+  min-width: 260px;
+  max-width: calc((100% - 40px) / 3);
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: #e8e8e6;
+  box-shadow: 0 0 52px 18px rgba(0,0,0,0.045);
 }
-@media (max-width: 560px) {
-  .content-grid { grid-template-columns: 1fr; }
+.media-sq-card video,
+.media-sq-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* ===== PERF AD CAROUSEL ===== */
+#perf-ad-row {
+  display: block;
+  overflow: clip;
+}
+#perf-ad-track {
+  display: flex;
+  gap: 20px;
+}
+#perf-ad-track .media-sq-card {
+  flex: 0 0 calc((100% - 80px) / 4.25);
+  min-width: unset;
+  max-width: none;
+  scroll-snap-align: none;
+  aspect-ratio: 1 / 1;
+}
+@media (max-width: 768px) {
+  #perf-ad-track .media-sq-card { flex: 0 0 75vw; }
+}
+#social-row .media-sq-card,
+#catalog-row .media-sq-card,
+#ugc-row .media-sq-card {
+  flex: 0 0 calc((100% - 60px) / 3.5);
+  min-width: unset;
+  max-width: none;
+}
+@media (max-width: 768px) {
+  #social-row .media-sq-card,
+  #catalog-row .media-sq-card,
+  #ugc-row .media-sq-card { flex: 0 0 75vw; }
+}
+
+/* ===== MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+
+  /* Hero — center-align all content */
+  .hero { padding: 100px 0 52px; }
+  .hero-grid > div:first-child { text-align: center; }
+  .hero-badge { margin: 0 auto 24px; }
+  .hero-buttons { justify-content: center; }
+  .hero-pillars { justify-content: center; flex-wrap: wrap; gap: 16px 24px; }
+
+  /* Section padding reductions */
+  .social-proof { padding: 56px 0; }
+  .revenue { padding: 56px 0 72px; }
+  .problem { padding: 72px 0; }
+  .pillars { padding: 72px 0; }
+  .comparison { padding: 72px 0; }
+  .how { padding: 72px 0; }
+  .deliverables { padding: 72px 0; }
+  .faq { padding: 72px 0; }
+
+  /* Revenue header */
+  .rev-header { margin-bottom: 28px; }
+  .content-section { padding: 24px 0; }
+
+  /* Media cards — fixed viewport-relative width, no max-width conflict */
+  .media-sq-card {
+    flex: 0 0 75vw;
+    min-width: unset;
+    max-width: none;
+  }
 }
 </style>
 </head>
@@ -1429,7 +1460,7 @@ footer {
       <li><a href="#deliverables">Services</a></li>
       <li><a href="#how">Process</a></li>
       <li><a href="#faq">FAQ</a></li>
-      <li><a href="book-aicontent-call-us.html" class="nav-cta">Book AI Content Audit</a></li>
+      <li><a href="book-ai-content-call-ind.html" class="nav-cta">Book AI Content Audit</a></li>
     </ul>
   </div>
 </nav>
@@ -1440,10 +1471,10 @@ footer {
     <div class="hero-grid">
       <div>
         <div class="hero-badge hero-anim ha1"><span class="dot"></span> AI Content Production for E-Commerce</div>
-        <h1 class="hero-anim ha2">The AI Content Approach,<br>You Need to <em>Scale Faster</em></h1>
+        <h1 class="hero-anim ha2">The AI Content Approach,<br>You Need to <em>Grow Faster</em></h1>
         <p class="hero-sub hero-anim ha3"><u>Content is your bottleneck.</u> You need more ad content than your UGC creators can produce — faster, with more control, and without the headaches. That's what we build.</p>
         <div class="hero-buttons hero-anim ha4">
-          <a href="book-aicontent-call-us.html" class="btn-primary">Book AI Content Audit <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="book-ai-content-call-ind.html" class="btn-primary">Book AI Content Audit <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="#deliverables" class="btn-secondary">See What We Deliver</a>
         </div>
         <div class="hero-pillars hero-anim ha5">
@@ -1516,177 +1547,109 @@ footer {
     <div class="rev-header reveal">
       <div class="section-label">What You Get</div>
       <div class="section-title">AI Content Volume &amp; Revamp<br>That Your Brand <em>Needs</em></div>
-      <p class="section-sub" style="max-width:none;white-space:nowrap;">Conversion-focused content <span style="display:inline-block;width:6px;height:6px;background:#1a1a1a;border-radius:50%;vertical-align:middle;margin:0 8px;"></span> Organic social fuel <span style="display:inline-block;width:6px;height:6px;background:#1a1a1a;border-radius:50%;vertical-align:middle;margin:0 8px;"></span> A catalog that makes your brand look premium</p>
+      <p class="section-sub" style="max-width:none;text-align:center;">Conversion-focused content <span style="display:inline-block;width:6px;height:6px;background:#1a1a1a;border-radius:50%;vertical-align:middle;margin:0 8px;"></span> Organic social fuel <span style="display:inline-block;width:6px;height:6px;background:#1a1a1a;border-radius:50%;vertical-align:middle;margin:0 8px;"></span> Premium catalog content</p>
     </div>
 
-    <!-- Row 1: Performance Ads | Social Content | AI Catalog -->
-    <div class="content-grid">
-
-      <div class="content-card reveal reveal-d1">
-        <div class="content-card-top">
-          <span class="del-badge core">Core</span>
-          <h3>AI Performance Ad Creatives</h3>
-          <p class="card-desc">Ready-to-run paid media content built for Meta, TikTok &amp; Google.</p>
-        </div>
-        <div class="card-media">
-          <div class="media-flipper" id="flipper-ads">
-            <div class="media-slide active">
-              <video src="Content/Reels/chk footwear.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></video>
-            </div>
-            <div class="media-slide">
-              <video src="Content/Reels/perfume oud.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></video>
-            </div>
-            <div class="media-slide">
-              <video src="Content/Reels/ogio.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></video>
-            </div>
-          </div>
-          <div class="flipper-dots" id="dots-ads">
-            <div class="flipper-dot active"></div>
-            <div class="flipper-dot"></div>
-            <div class="flipper-dot"></div>
-          </div>
+    <!-- 1: Performance Ads -->
+    <div class="content-section reveal">
+      <div class="content-section-header">
+        <span class="del-badge core">Core</span>
+        <h3>AI Performance Ad Creatives</h3>
+        <p class="card-desc">Ready-to-run paid media content built for Meta, TikTok &amp; Google.</p>
+      </div>
+      <div class="content-media-row" id="perf-ad-row">
+        <div id="perf-ad-track">
+          <div class="media-sq-card"><video src="Content/Reels/chk footwear.mp4" autoplay muted loop playsinline></video></div>
+          <div class="media-sq-card"><video src="Content/Reels/perfume oud.mp4" autoplay muted loop playsinline></video></div>
+          <div class="media-sq-card"><video src="Content/Reels/ogio.mp4" autoplay muted loop playsinline></video></div>
+          <div class="media-sq-card"><video src="Content/Reels/v4 - Ad - 01 - Tobacco Vanilla - UGC Video.mp4" autoplay muted loop playsinline></video></div>
+          <div class="media-sq-card"><video src="Content/Reels/grwm-compressed.mp4" autoplay muted loop playsinline></video></div>
+          <div class="media-sq-card"><video src="Content/Reels/neesh-compressed.mp4" autoplay muted loop playsinline></video></div>
+          <div class="media-sq-card"><video src="Content/Reels/chk footwear.mp4" autoplay muted loop playsinline></video></div>
+          <div class="media-sq-card"><video src="Content/Reels/perfume oud.mp4" autoplay muted loop playsinline></video></div>
+          <div class="media-sq-card"><video src="Content/Reels/ogio.mp4" autoplay muted loop playsinline></video></div>
+          <div class="media-sq-card"><video src="Content/Reels/v4 - Ad - 01 - Tobacco Vanilla - UGC Video.mp4" autoplay muted loop playsinline></video></div>
+          <div class="media-sq-card"><video src="Content/Reels/grwm-compressed.mp4" autoplay muted loop playsinline></video></div>
+          <div class="media-sq-card"><video src="Content/Reels/neesh-compressed.mp4" autoplay muted loop playsinline></video></div>
         </div>
       </div>
-
-      <div class="content-card reveal reveal-d2">
-        <div class="content-card-top">
-          <span class="del-badge core">Core</span>
-          <h3>AI Social Content Library</h3>
-          <p class="card-desc">Keep Instagram, TikTok &amp; LinkedIn fed with AI-generated UGC-style content.</p>
-        </div>
-        <div class="card-media">
-          <div class="media-flipper" id="flipper-social">
-            <div class="media-slide active">
-              <video src="Content/Reels/mars.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></video>
-            </div>
-            <div class="media-slide">
-              <video src="Content/Reels/watch strap.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></video>
-            </div>
-            <div class="media-slide">
-              <img src="Content/Reels/social 3.png" alt="Social Content" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
-            </div>
-          </div>
-          <div class="flipper-dots" id="dots-social">
-            <div class="flipper-dot active"></div>
-            <div class="flipper-dot"></div>
-            <div class="flipper-dot"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="content-card reveal reveal-d3">
-        <div class="content-card-top">
-          <span class="del-badge bonus">Bonus</span>
-          <h3>AI Catalog Revamp</h3>
-          <p class="card-desc">Photorealistic catalog &amp; lifestyle photography that makes your store convert.</p>
-        </div>
-        <div class="card-media">
-          <div class="media-flipper" id="flipper-catalog">
-            <div class="media-slide active">
-              <img src="Content/Reels/skincare catalogue 1.png" alt="Skincare Catalogue" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
-            </div>
-            <div class="media-slide">
-              <img src="Content/Reels/social 1.png" alt="Catalog Shot" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
-            </div>
-            <div class="media-slide">
-              <img src="Content/Reels/Editorial man.png" alt="Editorial Man" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
-            </div>
-          </div>
-          <div class="flipper-dots" id="dots-catalog">
-            <div class="flipper-dot active"></div>
-            <div class="flipper-dot"></div>
-            <div class="flipper-dot"></div>
-          </div>
-        </div>
-      </div>
-
     </div>
 
-    <!-- Row 2: UGC | Luxury & Editorial | AI Models -->
-    <div class="content-grid">
-
-      <div class="content-card reveal reveal-d1">
-        <div class="content-card-top">
-          <span class="del-badge core">Core</span>
-          <h3>AI UGC</h3>
-          <p class="card-desc">Authentic, creator-style content at scale — no real creators needed.</p>
-        </div>
-        <div class="card-media">
-          <div class="media-flipper" id="flipper-ugc">
-            <div class="media-slide active">
-              <video src="Content/Reels/ugc skincare.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></video>
-            </div>
-            <div class="media-slide">
-              <video src="Content/Reels/UGC jewellery 1.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></video>
-            </div>
-            <div class="media-slide">
-              <video src="Content/Reels/Skincare Product Showcase Video.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></video>
-            </div>
-          </div>
-          <div class="flipper-dots" id="dots-ugc">
-            <div class="flipper-dot active"></div>
-            <div class="flipper-dot"></div>
-            <div class="flipper-dot"></div>
-          </div>
-        </div>
+    <!-- 2: Social Content -->
+    <div class="content-section reveal">
+      <div class="content-section-header">
+        <span class="del-badge core">Core</span>
+        <h3>AI Social Content Library</h3>
+        <p class="card-desc">Keep Instagram, TikTok &amp; LinkedIn fed with AI-generated UGC-style content.</p>
       </div>
-
-      <div class="content-card reveal reveal-d2">
-        <div class="content-card-top">
-          <span class="del-badge core">Core</span>
-          <h3>AI Luxury &amp; Editorial Shoots</h3>
-          <p class="card-desc">Premium brand aesthetics from Monaco to Bali, without the production budget.</p>
-        </div>
-        <div class="card-media">
-          <div class="media-flipper" id="flipper-luxury">
-            <div class="media-slide active">
-              <video src="Content/Reels/apparel editorial.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:inherit;"></video>
-            </div>
-            <div class="media-slide">
-              <video src="Content/Reels/jewellery editorial.mp4" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:inherit;transform:scale(1.4);"></video>
-            </div>
-          </div>
-          <div class="flipper-dots" id="dots-luxury">
-            <div class="flipper-dot active"></div>
-            <div class="flipper-dot"></div>
-          </div>
-        </div>
+      <div class="content-media-row" id="social-row">
+        <div class="media-sq-card"><video src="Content/Reels/mars.mp4" autoplay muted loop playsinline></video></div>
+        <div class="media-sq-card"><video src="Content/Reels/watch strap.mp4" autoplay muted loop playsinline></video></div>
+        <div class="media-sq-card"><img src="Content/Reels/social 3.png" alt="Social Content"></div>
+        <div class="media-sq-card"><img src="Content/Reels/traditional wear model.png" alt="Traditional Wear Model"></div>
       </div>
+    </div>
 
-      <div class="content-card reveal reveal-d3">
-        <div class="content-card-top">
-          <span class="del-badge bonus">Bonus</span>
-          <h3>AI Models</h3>
-          <p class="card-desc">Custom AI creator models built specifically for your brand identity.</p>
-        </div>
-        <div class="card-media">
-          <div class="media-flipper" id="flipper-models">
-            <div class="media-slide active">
-              <img src="Content/Reels/Ai Model 2.png" alt="AI Model" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
-            </div>
-            <div class="media-slide">
-              <img src="Content/Reels/AI Model 4.png" alt="AI Model" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
-            </div>
-            <div class="media-slide">
-              <img src="Content/Reels/Ai Model 1.png" alt="AI Model" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
-            </div>
-            <div class="media-slide">
-              <img src="Content/Reels/AI Model 3.png" alt="AI Model" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
-            </div>
-          </div>
-          <div class="flipper-dots" id="dots-models">
-            <div class="flipper-dot active"></div>
-            <div class="flipper-dot"></div>
-            <div class="flipper-dot"></div>
-            <div class="flipper-dot"></div>
-          </div>
-        </div>
+    <!-- 3: Catalog Revamp -->
+    <div class="content-section reveal">
+      <div class="content-section-header">
+        <span class="del-badge bonus">Bonus</span>
+        <h3>AI Catalog Revamp</h3>
+        <p class="card-desc">Photorealistic catalog &amp; lifestyle photography that makes your store convert.</p>
       </div>
+      <div class="content-media-row" id="catalog-row">
+        <div class="media-sq-card"><img src="Content/Reels/skincare catalogue 1.png" alt="Skincare Catalogue"></div>
+        <div class="media-sq-card"><img src="Content/Reels/social 1.png" alt="Catalog Shot"></div>
+        <div class="media-sq-card"><img src="Content/Reels/Editorial man.png" alt="Editorial Man"></div>
+        <div class="media-sq-card"><img src="Content/Reels/Catalogue dress.png" alt="Catalogue Dress"></div>
+      </div>
+    </div>
 
+    <!-- 4: UGC -->
+    <div class="content-section reveal">
+      <div class="content-section-header">
+        <span class="del-badge core">Core</span>
+        <h3>AI UGC</h3>
+        <p class="card-desc">Authentic, creator-style content at scale — no real creators needed.</p>
+      </div>
+      <div class="content-media-row" id="ugc-row">
+        <div class="media-sq-card"><video src="Content/Reels/ugc skincare.mp4" autoplay muted loop playsinline></video></div>
+        <div class="media-sq-card"><video src="Content/Reels/UGC jewellery 1.mp4" autoplay muted loop playsinline></video></div>
+        <div class="media-sq-card"><video src="Content/Reels/Skincare Product Showcase Video.mp4" autoplay muted loop playsinline></video></div>
+        <div class="media-sq-card"><video src="Content/Reels/UGC gehna video 2 final.mp4" autoplay muted loop playsinline></video></div>
+      </div>
+    </div>
+
+    <!-- 5: Luxury & Editorial -->
+    <div class="content-section reveal">
+      <div class="content-section-header">
+        <span class="del-badge core">Core</span>
+        <h3>AI Luxury &amp; Editorial Shoots</h3>
+        <p class="card-desc">Premium brand aesthetics from Monaco to Bali, without the production budget.</p>
+      </div>
+      <div class="content-media-row">
+        <div class="media-sq-card"><video src="Content/Reels/apparel editorial.mp4" autoplay muted loop playsinline></video></div>
+        <div class="media-sq-card"><video src="Content/Reels/jewellery editorial.mp4" autoplay muted loop playsinline style="transform:scale(1.4);"></video></div>
+      </div>
+    </div>
+
+    <!-- 6: AI Models -->
+    <div class="content-section reveal">
+      <div class="content-section-header">
+        <span class="del-badge bonus">Bonus</span>
+        <h3>AI Models</h3>
+        <p class="card-desc">Custom AI creator models built specifically for your brand identity.</p>
+      </div>
+      <div class="content-media-row">
+        <div class="media-sq-card"><img src="Content/Reels/Ai Model 2.png" alt="AI Model"></div>
+        <div class="media-sq-card"><img src="Content/Reels/AI Model 4.png" alt="AI Model"></div>
+        <div class="media-sq-card"><img src="Content/Reels/Ai Model 1.png" alt="AI Model"></div>
+        <div class="media-sq-card"><img src="Content/Reels/AI Model 3.png" alt="AI Model"></div>
+      </div>
     </div>
 
     <div style="text-align:center; margin-top:56px;" class="reveal">
-      <a href="book-aicontent-call-us.html" class="btn-primary">Book AI Content Audit <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="book-ai-content-call-ind.html" class="btn-primary">Book AI Content Audit <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
 
   </div>
@@ -1722,7 +1685,7 @@ footer {
       <div class="prob-video-wrap">
         <div class="prob-video">
           <span class="prob-video-tag">AI Creator UGC</span>
-          <video src="Content/Reels/ugc skincare.mp4" autoplay muted loop playsinline></video>
+          <video id="andromeda-vid" src="Content/Reels/ugc skincare.mp4" autoplay muted loop playsinline></video>
         </div>
       </div>
     </div>
@@ -1866,7 +1829,7 @@ footer {
   <div class="footer-body">
     <h2 class="footer-headline">Join the 200+ Brands We Have Helped Grow</h2>
     <div class="footer-cta-wrap">
-      <a href="book-aicontent-call-us.html" class="btn-primary">Book AI Content Audit <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="book-ai-content-call-ind.html" class="btn-primary">Book AI Content Audit <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <ul class="footer-policy">
       <li><a href="privacy-policy.html">Privacy Policy</a></li>
@@ -1910,7 +1873,7 @@ document.querySelectorAll('.faq-q').forEach(q => {
 });
 
 // Fire Lead pixel on all booking CTA clicks
-document.querySelectorAll('a[href="book-aicontent-call-us.html"]').forEach(function(link) {
+document.querySelectorAll('a[href="book-ai-content-call-ind.html"]').forEach(function(link) {
   link.addEventListener('click', function() {
     if (typeof fbq === 'function') {
       fbq('track', 'Lead');
@@ -1964,12 +1927,143 @@ function initFlipper(flipperId, dotsId, offset) {
 
   setTimeout(startTimer, offset);
 }
-initFlipper('flipper-ads',     'dots-ads',     0);
-initFlipper('flipper-social',  'dots-social',  1100);
-initFlipper('flipper-catalog', 'dots-catalog', 2200);
-initFlipper('flipper-ugc',     'dots-ugc',     500);
-initFlipper('flipper-luxury',  'dots-luxury',  1600);
-initFlipper('flipper-models',  'dots-models',  2700);
+
+// Speed up Andromeda section video to 1.2x
+(function() {
+  var v = document.getElementById('andromeda-vid');
+  if (!v) return;
+  function setRate() { v.playbackRate = 1.2; }
+  setRate();
+  v.addEventListener('play', setRate);
+})();
+
+// Auto-scroll for all content rows except perf-ad (mobile always; desktop when overflow)
+(function() {
+  var SPEED = 50; // px per second
+
+  function initRowScroll(rowEl) {
+    requestAnimationFrame(function() {
+      var cards = Array.from(rowEl.children);
+      if (!cards.length) return;
+
+      // Snapshot rendered widths before wrapping
+      var cardW = cards.map(function(c) { return c.offsetWidth; });
+
+      // Wrap in a track div
+      var track = document.createElement('div');
+      track.style.cssText = 'display:flex;gap:20px;will-change:transform;';
+      rowEl.appendChild(track);
+
+      // Move cards into track with fixed pixel widths
+      cards.forEach(function(c, i) {
+        c.style.flex = '0 0 ' + cardW[i] + 'px';
+        c.style.minWidth = 'unset';
+        c.style.maxWidth = 'none';
+        track.appendChild(c);
+      });
+
+      // Duplicate cards for seamless infinite loop
+      cards.forEach(function(c, i) {
+        var cl = c.cloneNode(true);
+        cl.style.flex = '0 0 ' + cardW[i] + 'px';
+        cl.style.minWidth = 'unset';
+        cl.style.maxWidth = 'none';
+        track.appendChild(cl);
+      });
+
+      var pos = 0, loopWidth = 0, rafId = null, lastTs = null;
+
+      function tick(ts) {
+        if (lastTs === null) lastTs = ts;
+        var dt = Math.min((ts - lastTs) / 1000, 0.1);
+        lastTs = ts;
+        pos += SPEED * dt;
+        if (!loopWidth) loopWidth = track.scrollWidth / 2;
+        if (pos >= loopWidth) pos -= loopWidth;
+        track.style.transform = 'translateX(' + (-pos) + 'px)';
+        rafId = requestAnimationFrame(tick);
+      }
+
+      function start() {
+        if (rafId) return;
+        loopWidth = 0; lastTs = null;
+        rafId = requestAnimationFrame(tick);
+      }
+
+      function stop() { cancelAnimationFrame(rafId); rafId = null; }
+
+      function shouldScroll() {
+        return window.innerWidth <= 768 || track.scrollWidth / 2 > rowEl.offsetWidth;
+      }
+
+      function activate() {
+        if (shouldScroll()) {
+          rowEl.style.overflow = 'hidden';
+          rowEl.style.scrollSnapType = 'none';
+          start();
+        } else {
+          stop();
+          rowEl.style.overflow = '';
+          rowEl.style.scrollSnapType = '';
+        }
+      }
+
+      rowEl.addEventListener('mouseenter', stop);
+      rowEl.addEventListener('mouseleave', function() {
+        if (shouldScroll()) { lastTs = null; start(); }
+      });
+
+      activate();
+      window.addEventListener('resize', function() { stop(); pos = 0; activate(); });
+    });
+  }
+
+  document.querySelectorAll('.content-media-row').forEach(function(row) {
+    if (row.id !== 'perf-ad-row') initRowScroll(row);
+  });
+})();
+
+// ---- Perf Ad carousel: transform translateX + RAF easing, 3s interval ----
+(function () {
+  var track = document.getElementById('perf-ad-track');
+  if (!track) return;
+
+  var origCount = 6, pos = 0, currentX = 0, animId;
+
+  function cardStep() {
+    var c = track.querySelector('.media-sq-card');
+    return c ? c.offsetWidth + 20 : 0; // card width + gap
+  }
+
+  function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+  function animateTo(targetX) {
+    cancelAnimationFrame(animId);
+    var fromX = currentX, dist = targetX - fromX, t0 = null;
+    function tick(ts) {
+      if (!t0) t0 = ts;
+      var p = Math.min((ts - t0) / 800, 1);
+      currentX = fromX + dist * easeOut(p);
+      track.style.transform = 'translateX(' + (-currentX) + 'px)';
+      if (p < 1) animId = requestAnimationFrame(tick);
+    }
+    animId = requestAnimationFrame(tick);
+  }
+
+  setInterval(function () {
+    pos++;
+    animateTo(pos * cardStep());
+    if (pos >= origCount) {
+      setTimeout(function () {
+        cancelAnimationFrame(animId);
+        pos = 0;
+        currentX = 0;
+        track.style.transform = 'translateX(0)';
+      }, 850);
+    }
+  }, 3000);
+})();
+
 </script>
 </body>
 </html>

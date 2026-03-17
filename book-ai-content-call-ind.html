@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Your AI Content Audit — Brandslane</title>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '972598659845311');
+fbq('track', 'PageView');
+fbq('track', 'Lead');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=972598659845311&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f8f8f6;
+  --bg-dark: #0c0c0e;
+  --bg-dark-soft: #141416;
+  --text: #1a1a1a;
+  --text-secondary: #555555;
+  --text-tertiary: #888888;
+  --border: #e8e7e4;
+  --accent: #1a56db;
+  --accent-hover: #1548c0;
+  --accent-soft: #eef2ff;
+  --accent-text: #1a56db;
+  --green: #16803c;
+  --green-soft: #ecfdf3;
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Outfit', system-ui, sans-serif;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+  --shadow-xl: 0 24px 64px rgba(0,0,0,0.1), 0 8px 20px rgba(0,0,0,0.04);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+::selection { background: var(--accent); color: #fff; }
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 14px;
+  left: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: #141415;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.28);
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s, top 0.3s;
+}
+nav.scrolled {
+  top: 6px;
+  background: #ffffff;
+  border-color: rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+}
+nav.scrolled .nav-logo { color: #0c0c0e; }
+nav.scrolled .nav-links a { color: rgba(0,0,0,0.55); }
+nav.scrolled .nav-links a:hover { color: #0c0c0e; }
+.nav-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  transition: color 0.3s;
+}
+.nav-logo span { color: var(--accent); }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: #fff; }
+
+@media (max-width: 680px) {
+  .nav-links { display: none; }
+}
+
+/* ===== BOOKING SECTION ===== */
+.book-section {
+  padding: 120px 0 80px;
+}
+
+.book-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 48px;
+}
+
+.book-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.book-heading {
+  font-family: var(--serif);
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: -1px;
+  color: var(--text);
+  margin-bottom: 18px;
+}
+.book-heading em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.book-sub {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-bottom: 28px;
+}
+
+/* Trust bar */
+.book-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-tertiary);
+}
+.trust-item svg { color: var(--green); flex-shrink: 0; }
+
+/* Calendly widget wrapper */
+.calendly-wrap {
+  width: 100%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 640px) {
+  .calendly-wrap {
+    border-radius: 0;
+    margin-left: -28px;
+    width: calc(100% + 56px);
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+  }
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--bg-dark);
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin-top: 100px;
+}
+.footer-body {
+  text-align: center;
+  padding: 88px 28px 52px;
+  position: relative;
+  z-index: 1;
+}
+.footer-headline {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+  margin-bottom: 28px;
+}
+.footer-cta-wrap { margin-bottom: 44px; }
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--accent);
+  color: #fff;
+  padding: 15px 32px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--sans);
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26,86,219,0.25);
+}
+.btn-primary svg { transition: transform 0.3s; }
+.btn-primary:hover svg { transform: translateX(3px); }
+.footer-policy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  list-style: none;
+  padding: 0;
+}
+.footer-policy a {
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-policy a:hover { color: rgba(255,255,255,0.65); }
+.footer-addresses {
+  display: flex;
+  justify-content: center;
+  gap: 72px;
+  flex-wrap: wrap;
+}
+.footer-addr {
+  font-size: 12px;
+  color: rgba(255,255,255,0.22);
+  line-height: 1.75;
+  text-align: center;
+}
+.footer-addr strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 4px;
+}
+.footer-wordmark {
+  text-align: center;
+  font-family: var(--sans);
+  font-size: clamp(60px, 11.2vw, 161px);
+  font-weight: 800;
+  color: rgba(255,255,255,0.07);
+  letter-spacing: -5px;
+  line-height: 0.82;
+  height: 0.72em;
+  overflow: hidden;
+  user-select: none;
+  display: block;
+  margin-top: 40px;
+}
+
+/* ===== ANIMATIONS ===== */
+.ba { opacity: 0; transform: translateY(20px); animation: fadeUp 0.7s ease forwards; }
+.ba1 { animation-delay: 0.05s; }
+.ba2 { animation-delay: 0.18s; }
+.ba3 { animation-delay: 0.30s; }
+.ba4 { animation-delay: 0.42s; }
+.ba5 { animation-delay: 0.54s; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 640px) {
+  .footer-addresses { flex-direction: column; gap: 20px; }
+  .footer-policy { gap: 14px; }
+  .book-trust { gap: 14px; }
+  .calendly-wrap { border-radius: var(--radius-lg); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="brandslane-landing-v3.html" class="nav-logo">Brandslane<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="brandslane-landing-v3.html#pillars">Why Us</a></li>
+      <li><a href="brandslane-landing-v3.html#deliverables">Services</a></li>
+      <li><a href="brandslane-landing-v3.html#faq">FAQ</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- BOOKING SECTION -->
+<section class="book-section">
+  <div class="container">
+
+    <!-- Header copy -->
+    <div class="book-header">
+      <div class="book-kicker ba ba1">📅 Free 30-Min Strategy Call</div>
+      <h1 class="book-heading ba ba2">Book Your <em>AI Content Audit</em></h1>
+      <p class="book-sub ba ba3">Pick a time below. We'll audit your current creative setup and show you exactly where AI content can scale your brand's output — faster and at a fraction of the cost.</p>
+      <div class="book-trust ba ba4">
+        <div class="trust-item">
+          <svg width="15" height="15" fill="none" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          No commitment required
+        </div>
+        <div class="trust-item">
+          <svg width="15" height="15" fill="none" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Free audit, real insights
+        </div>
+        <div class="trust-item">
+          <svg width="15" height="15" fill="none" viewBox="0 0 16 16"><path d="M3 8l4 4 6-7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          200+ brands helped
+        </div>
+      </div>
+    </div>
+
+    <!-- Calendly widget -->
+    <div class="calendly-wrap ba ba5">
+      <div class="calendly-inline-widget"
+        data-url="https://calendly.com/brandslane/brand-aicontent-call?hide_gdpr_banner=1&primary_color=1a56db"
+        style="min-width:320px;height:700px;">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-body">
+    <h2 class="footer-headline">Join the 200+ Brands We Have Helped Grow</h2>
+    <div class="footer-cta-wrap">
+      <a href="book-ai-content-call-ind.html" class="btn-primary">Book AI Content Audit <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <ul class="footer-policy">
+      <li><a href="privacy-policy.html">Privacy Policy</a></li>
+      <li><a href="terms-and-conditions.html">Terms &amp; Conditions</a></li>
+      <li><a href="refund-policy.html">Refund Policy</a></li>
+      <li><a href="contact-us.html">Contact Us</a></li>
+    </ul>
+    <div class="footer-addresses">
+      <div class="footer-addr">
+        <strong>India</strong>
+        C-25, First Floor, Sector 8,<br>Gautam Buddha Nagar, Uttar Pradesh,<br>India — 201301
+      </div>
+      <div class="footer-addr">
+        <strong>Dubai</strong>
+        Building A1, Dubai Digital Park,<br>Dubai Silicon Oasis,<br>Dubai, United Arab Emirates
+      </div>
+    </div>
+  </div>
+  <div class="footer-wordmark" aria-hidden="true">BRANDSLANE</div>
+</footer>
+
+<!-- Calendly widget script -->
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
+
+// Calendly postMessage → fire Schedule pixel → redirect to thank you page
+window.addEventListener('message', function(e) {
+  if (e.data.event && e.data.event.indexOf('calendly') === 0) {
+    if (e.data.event === 'calendly.event_scheduled') {
+      if (typeof fbq === 'function') {
+        fbq('track', 'Schedule');
+      }
+      setTimeout(function() {
+        window.location.href = 'typage.html';
+      }, 1200);
+    }
+  }
+});
+</script>
+</body>
+</html>
