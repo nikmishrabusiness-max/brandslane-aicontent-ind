@@ -4,23 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Brandslane — You're Booked</title>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '972598659845311');
-var _eid=function(){return typeof crypto!=='undefined'&&crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2);};
-var _pvId=_eid();
-fbq('track','PageView',{},{eventID:_pvId});
-fetch('/api/capi',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event_name:'PageView',event_id:_pvId,event_source_url:window.location.href,client_user_agent:navigator.userAgent})}).catch(function(){});
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=972598659845311&ev=PageView&noscript=1"/></noscript>
-<!-- End Meta Pixel Code -->
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -333,14 +316,7 @@ footer {
     <p class="ty-sub ty-anim ta2">Your call is confirmed. Watch this short video to know exactly what to expect next and how to make the most of our time together.</p>
     <div class="ty-video-wrap ty-anim ta3">
       <div class="ty-video-container">
-        <!-- Replace this placeholder with your video embed or <video> tag -->
-        <!-- Example iframe: <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe> -->
-        <!-- Example video: <video src="your-thankyou-video.mp4" controls playsinline></video> -->
-        <div class="ty-video-ph">
-          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Thank You Video
-          <small>Upload your video here</small>
-        </div>
+        <iframe src="https://player.vimeo.com/video/1174826724?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Thank you video - BL landing page"></iframe>
       </div>
     </div>
   </div>
@@ -351,7 +327,7 @@ footer {
   <div class="footer-body">
     <h2 class="footer-headline">Join the 200+ Brands<br>We Have Helped Grow</h2>
     <div class="footer-cta-wrap">
-      <a href="book-ai-content-call-ind.html" class="btn-primary">Scale My Brand <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="https://calendly.com/brandslane/brand-aicontent-call" target="_blank" class="btn-primary">Scale My Brand <svg width="16" height="16" fill="none" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
     <ul class="footer-policy">
       <li><a href="#">Privacy Policy</a></li>
@@ -373,6 +349,7 @@ footer {
   <div class="footer-wordmark" aria-hidden="true">BRANDSLANE</div>
 </footer>
 
+<script src="https://player.vimeo.com/api/player.js"></script>
 <script>
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 40));
