@@ -14,11 +14,12 @@ t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '972598659845311');
 var _eid=function(){return typeof crypto!=='undefined'&&crypto.randomUUID?crypto.randomUUID():Date.now().toString(36)+Math.random().toString(36).slice(2);};
+var _gc=function(n){var m=document.cookie.match('(^|;)\\s*'+n+'\\s*=\\s*([^;]+)');return m?m.pop():'';};
 var _pvId=_eid(),_leadId=_eid();
 fbq('track','PageView',{},{eventID:_pvId});
 fbq('track','Lead',{},{eventID:_leadId});
-fetch('/api/capi',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event_name:'PageView',event_id:_pvId,event_source_url:window.location.href,client_user_agent:navigator.userAgent})}).catch(function(){});
-fetch('/api/capi',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event_name:'Lead',event_id:_leadId,event_source_url:window.location.href,client_user_agent:navigator.userAgent})}).catch(function(){});
+fetch('/api/capi',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event_name:'PageView',event_id:_pvId,event_source_url:window.location.href,client_user_agent:navigator.userAgent,fbc:_gc('_fbc'),fbp:_gc('_fbp')})}).catch(function(){});
+fetch('/api/capi',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({event_name:'Lead',event_id:_leadId,event_source_url:window.location.href,client_user_agent:navigator.userAgent,fbc:_gc('_fbc'),fbp:_gc('_fbp')})}).catch(function(){});
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=972598659845311&ev=PageView&noscript=1"/></noscript>
@@ -430,7 +431,7 @@ window.addEventListener('message', function(e) {
       if (typeof fbq === 'function') {
         var _sId = (typeof _eid === 'function' ? _eid() : Date.now().toString(36) + Math.random().toString(36).slice(2));
         fbq('track', 'Schedule', {}, {eventID: _sId});
-        fetch('/api/capi', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({event_name:'Schedule', event_id:_sId, event_source_url:window.location.href, client_user_agent:navigator.userAgent})}).catch(function(){});
+        fetch('/api/capi', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({event_name:'Schedule', event_id:_sId, event_source_url:window.location.href, client_user_agent:navigator.userAgent, fbc:_gc('_fbc'), fbp:_gc('_fbp')})}).catch(function(){});
       }
       setTimeout(function() {
         window.location.href = 'typage.html';

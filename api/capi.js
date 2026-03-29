@@ -3,7 +3,7 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { event_name, event_id, event_source_url, client_user_agent } = req.body || {};
+  const { event_name, event_id, event_source_url, client_user_agent, fbc, fbp } = req.body || {};
 
   if (!event_name || !event_id) {
     return res.status(400).json({ error: 'Missing event_name or event_id' });
@@ -22,7 +22,9 @@ module.exports = async function handler(req, res) {
       event_source_url: event_source_url || '',
       user_data: {
         client_ip_address: ip,
-        client_user_agent: client_user_agent || req.headers['user-agent'] || ''
+        client_user_agent: client_user_agent || req.headers['user-agent'] || '',
+        ...(fbc && { fbc }),
+        ...(fbp && { fbp })
       }
     }]
   };
