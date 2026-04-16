@@ -713,7 +713,7 @@ nav.scrolled .nav-links a:hover { color: #0c0c0e; }
 }
 
 @media (max-width: 900px) { .pillars-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .pillars-grid { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .pillars-grid { grid-template-columns: 1fr 1fr; } }
 
 /* ===== COMPARISON TABLE ===== */
 .comparison {
@@ -1451,6 +1451,13 @@ footer {
     min-width: unset;
     max-width: none;
   }
+
+  /* Hero h1 — suppress <br> so no single-word orphan lines */
+  .hero h1 br { display: none; }
+
+  /* Problem title — suppress <br> and reduce size to fit in 2 lines */
+  .problem .section-title br { display: none; }
+  .problem .section-title { font-size: 24px; }
 }
 </style>
 </head>
